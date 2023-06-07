@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire/compat';
@@ -18,11 +18,10 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
     AppComponent,
     AddTutorialComponent,
     TutorialDetailsComponent,
-    TutorialsListComponent
+    TutorialsListComponent,
   ],
   imports: [
     BrowserModule,
-    ToastrModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
@@ -30,6 +29,6 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
     AngularFirestoreModule, // for firestore
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

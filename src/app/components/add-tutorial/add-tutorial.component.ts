@@ -3,19 +3,20 @@ import { Tutorial } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-add-tutorial',
   templateUrl: './add-tutorial.component.html',
-  styleUrls: ['./add-tutorial.component.css']
+  styleUrls: ['./add-tutorial.component.css'],
 })
 export class AddTutorialComponent {
   tutorial: Tutorial = new Tutorial();
-  submitted = true;
+  submitted = false;
   CEPvalid: boolean = false;
-  
 
-  constructor(private tutorialService: TutorialService, private toastr: ToastrService) { }
+  constructor(
+    private tutorialService: TutorialService,
+    private toastr: ToastrService
+  ) {}
 
   saveTutorial(): void {
     this.tutorialService.create(this.tutorial).then(() => {
@@ -30,12 +31,14 @@ export class AddTutorialComponent {
   }
 
   consultaCep(CEP: string) {
-    this.tutorialService.buscarCep(CEP).subscribe((dados) => this.populaDadosForm(dados));
+    this.tutorialService
+      .buscarCep(CEP)
+      .subscribe((dados) => this.populaDadosForm(dados));
   }
   populaDadosForm(dados: any) {
-    if(dados.erro) {
+    if (dados.erro) {
       this.CEPvalid = false;
-      this.toastr.error('Ops. CEP infomado incorreto')
+      this.toastr.error('Ops. CEP infomado incorreto');
 
       return;
     }
