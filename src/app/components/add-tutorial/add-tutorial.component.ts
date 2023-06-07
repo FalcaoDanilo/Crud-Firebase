@@ -13,6 +13,8 @@ export class AddTutorialComponent {
   submitted = false;
   CEPvalid: boolean = false;
 
+  CepCaracters: boolean = false;
+
   constructor(
     private tutorialService: TutorialService,
     private toastr: ToastrService
@@ -30,11 +32,30 @@ export class AddTutorialComponent {
     this.tutorial = new Tutorial();
   }
 
-  consultaCep(CEP: string) {
-    this.tutorialService
-      .buscarCep(CEP)
-      .subscribe((dados) => this.populaDadosForm(dados));
+  consultaCep(CEP: string | undefined) {
+    const cepValue = CEP ?? '';
+    if (typeof cepValue === 'string') {
+      if (cepValue.length > 7) {
+        this.tutorialService
+          .buscarCep(cepValue)
+          .subscribe((dados) => this.populaDadosForm(dados));
+      } else {
+      }
+    }
   }
+
+  updateCepCaracters(CEP: String | undefined) {
+    const cepValue = CEP ?? '';
+    if (typeof cepValue === 'string') {
+      if (cepValue && cepValue.length > 7) {
+        this.CepCaracters = false;
+        return;
+      }
+
+      this.CepCaracters = true;
+    }
+  }
+
   populaDadosForm(dados: any) {
     if (dados.erro) {
       this.CEPvalid = false;
