@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
