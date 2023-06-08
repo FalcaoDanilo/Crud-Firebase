@@ -22,27 +22,31 @@
       />
     </div>
     <div class="form-group">
-      <label for="description">CEP</label>
+      <label for="cep">CEP</label>
       <input
         class="form-control"
-        id="description"
+        id="cep"
         required
         [(ngModel)]="currentTutorial.cep"
-        valueChanged="consultaCep($event)"
-        name="description"
+        (input)="consultaCep(currentTutorial.cep)"
+        (blur)="updateCepCaracters(currentTutorial.cep)"
+        name="cep"
         mask="00000-000"
         placeholder="Digite o CEP"
         maxlength="9"
       />
+      <div *ngIf="CepCaracters" class="alert alert-danger">
+        Tem que ter 8 dígitos
+      </div>
     </div>
     <div class="form-group">
-      <label for="description">Rua</label>
+      <label for="rua">Rua</label>
       <input
         class="form-control"
-        id="description"
+        id="rua"
         required
         [(ngModel)]="currentTutorial.rua"
-        name="description"
+        name="rua"
         placeholder="Digite a rua"
         maxlength="9"
       />
@@ -81,13 +85,13 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="description">Cidade</label>
+      <label for="cidade">Cidade</label>
       <input
         class="form-control"
-        id="description"
+        id="cidade"
         required
         [(ngModel)]="currentTutorial.cidade"
-        name="description"
+        name="cidade"
         placeholder="Digite a cidade"
         maxlength="50"
       />
@@ -111,7 +115,7 @@
     class="badge badge-primary mr-2"
     (click)="updatePublished(true)"
   >
-    Publish
+    Publicado!
   </button>
 
   <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
@@ -126,5 +130,5 @@
 
 <div *ngIf="!currentTutorial">
   <br />
-  <p>Cannot access this Tutorial...</p>
+  <p>Não foi possivel acessar...</p>
 </div>

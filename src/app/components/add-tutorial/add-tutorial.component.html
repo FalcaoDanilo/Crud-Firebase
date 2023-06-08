@@ -24,15 +24,15 @@
     </div>
 
     <div class="form-group">
-      <label for="description">CEP</label>
+      <label for="cep">CEP</label>
       <input
         class="form-control"
-        id="description"
+        id="cep"
         required
         [(ngModel)]="tutorial.cep"
         (input)="consultaCep(tutorial.cep)"
         (blur)="updateCepCaracters(tutorial.cep)"
-        name="description"
+        name="cep"
         mask="00000-000"
         placeholder="Digite o CEP"
         maxlength="8"
@@ -42,13 +42,13 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="description">Rua</label>
+      <label for="rua">Rua</label>
       <input
         class="form-control"
-        id="description"
+        id="rua"
         required
         [(ngModel)]="tutorial.rua"
-        name="description"
+        name="rua"
         placeholder="Digite a rua"
         maxlength="9"
       />
@@ -92,13 +92,13 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="description">Cidade</label>
+      <label for="cidade">Cidade</label>
       <input
         class="form-control"
-        id="description"
+        id="cidade"
         required
         [(ngModel)]="tutorial.cidade"
-        name="description"
+        name="cidade"
         placeholder="Digite a cidade"
         maxlength="50"
       />
