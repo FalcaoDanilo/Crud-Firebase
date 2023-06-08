@@ -59,7 +59,7 @@ export class TutorialDetailsComponent implements OnInit {
 
     if (this.currentTutorial.id) {
       this.tutorialService.update(this.currentTutorial.id, data)
-        .then(() => this.message = 'The tutorial was updated successfully!')
+        .then(() => this.message = 'Atualizado com sucesso!')
         .catch(err => console.log(err));
     }
   }
@@ -69,7 +69,7 @@ export class TutorialDetailsComponent implements OnInit {
       this.tutorialService.delete(this.currentTutorial.id)
         .then(() => {
           this.refreshList.emit();
-          this.message = 'The tutorial was updated successfully!';
+          this.message = 'Deletado com sucesso!';
         })
         .catch(err => console.log(err));
     }
